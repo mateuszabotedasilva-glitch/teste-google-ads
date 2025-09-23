@@ -35,17 +35,7 @@
 
   
 </head>
-<body>
-  <h1>Página de Teste - Google Ads</h1>
-  <p>Essa página serve para validar se a tag do Google Ads está funcionando.</p>
-
-  <!-- 🔹 Botão de conversão fictício -->
-  <button class="btn-conversao" onclick="registrarConversao()">Simular Conversão</button>
-
-  <!-- 🔹 Botão para abrir WhatsApp -->
-  <button class="btn-whatsapp" onclick="abrirWhatsApp()">Abrir WhatsApp</button>
-
-  <script>
+<script>
     // Evento de conversão
     function registrarConversao() {
       gtag('event', 'conversion', {
@@ -53,22 +43,19 @@
       });
       alert("Conversão enviada!");
     }
-    
 
     // Abrir WhatsApp + disparar evento de clique
     function abrirWhatsApp() {
-      // Substitua pelo seu número (formato internacional: 55 + DDD + número)
-      const telefone = "5511999999999"; 
+      const telefone = "5511999999999"; // Substitua pelo seu número
       const mensagem = "Olá, estou entrando em contato pelo site de teste!";
-      const url = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
+      const url = `https://api.whatsapp.com/send?phone=${telefone}&text=${encodeURIComponent(mensagem)}`;
 
-      // Envia evento para o Google Ads (pode ser usado como conversão também)
+      // Evento customizado para medir o clique
       gtag('event', 'click_whatsapp', {
         'event_category': 'engagement',
         'event_label': 'Botão WhatsApp'
       });
 
-      // Abre o WhatsApp em nova aba
       window.open(url, "_blank");
     }
   </script>
