@@ -35,7 +35,17 @@
 
   
 </head>
-<script>
+<body>
+  <h1>Página de Teste - Google Ads</h1>
+  <p>Essa página serve para validar se a tag do Google Ads está funcionando.</p>
+
+  <!-- 🔹 Botão de conversão fictício -->
+  <button class="btn-conversao" onclick="registrarConversao()">Simular Conversão</button>
+
+  <!-- 🔹 Botão para abrir WhatsApp -->
+  <button class="btn-whatsapp" onclick="abrirWhatsApp()">Abrir WhatsApp</button>
+
+  <script>
     // Evento de conversão
     function registrarConversao() {
       gtag('event', 'conversion', {
