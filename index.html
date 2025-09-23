@@ -28,6 +28,13 @@
     }
     .btn-conversao { background: #0073e6; }
     .btn-whatsapp { background: #25D366; }
+
+    #whatsapp-url {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #333;
+      word-wrap: break-word;
+    }
   </style>
 </script>
   <meta charset="UTF-8">
@@ -45,6 +52,9 @@
   <!-- 🔹 Botão para abrir WhatsApp -->
   <button class="btn-whatsapp" onclick="abrirWhatsApp()">Abrir WhatsApp</button>
 
+  <!-- 🔹 Local onde a URL será exibida -->
+  <p id="whatsapp-url"></p>
+
   <script>
     // Evento de conversão
     function registrarConversao() {
@@ -60,12 +70,16 @@
       const mensagem = "Olá, estou entrando em contato pelo site de teste!";
       const url = `https://api.whatsapp.com/send?phone=${telefone}&text=${encodeURIComponent(mensagem)}`;
 
+      // Exibe a URL na página
+      document.getElementById("whatsapp-url").textContent = "URL gerada: " + url;
+
       // Evento customizado para medir o clique
       gtag('event', 'click_whatsapp', {
         'event_category': 'engagement',
         'event_label': 'Botão WhatsApp'
       });
 
+      // Abre o WhatsApp em nova aba
       window.open(url, "_blank");
     }
   </script>
