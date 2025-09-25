@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N2VCCNTB');</script>
+<!-- End Google Tag Manager -->
+
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17549161720"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-17549161720');
+</script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    button {
+      display: block;
+      margin: 20px auto;
+      padding: 15px 25px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 8px;
+      border: none;
+      color: #fff;
+    }
+    .btn-conversao { background: #0073e6; }
+    .btn-whatsapp { background: #25D366; }
+
+    #whatsapp-url {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #333;
+      word-wrap: break-word;
+    }
+    form {
+      margin-top: 30px;
+      display: inline-block;
+      text-align: left;
+    }
+    form div {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+  </style>
+</script>
+  <meta charset="UTF-8">
+  <title>Página de Teste Google Ads 1</title>
+
+  
+</head>
+<body>
+  
+  <h1>Página de Teste - Google Ads 1</h1>
+  <p>Essa página serve para validar se a tag do Google Ads está funcionando.</p>
+
+  <!-- 🔹 Botão de conversão fictício -->
+  <button class="btn-conversao" onclick="registrarConversao()">Simular Conversão</button>
+
+  <!-- 🔹 Botão para abrir WhatsApp -->
+  <button class="btn-whatsapp" onclick="abrirWhatsApp()">Abrir WhatsApp</button>
+
+  <!-- 🔹 Local onde a URL será exibida -->
+  <p id="whatsapp-url"></p>
+
+  <!-- Link de ligação -->
+  <p>
+    📞 <a href="tel:+5547991530673">Ligar para (47) 99153-0673</a>
+  </p>
+
+   <!-- 🔹 Formulário -->
+  <h2>Formulário de Contato</h2>
+  <form onsubmit="enviarFormulario(event)">
+    <div>
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" required>
+    </div>
+    <div>
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <div>
+      <label for="mensagem">Mensagem:</label>
+      <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+    </div>
+    <button type="submit" class="btn-enviar">Enviar</button>
+  </form>
+
+
+  <script>
+    // Evento de conversão
+    function registrarConversao() {
+      gtag('event', 'conversion', {
+        'send_to': 'AW-17549161720' // Substitua pelo ID da sua conversão
+      });
+      alert("Conversão enviada!");
+    }
+
+    // Abrir WhatsApp + disparar evento de clique
+    function abrirWhatsApp() {
+      const telefone = "5511999999999"; // Substitua pelo seu número
+      const mensagem = "Olá, estou entrando em contato pelo site de teste!";
+      const url = `https://api.whatsapp.com/send?phone=${telefone}&text=${encodeURIComponent(mensagem)}`;
+
+      // Exibe a URL na página
+      document.getElementById("whatsapp-url").textContent = "URL gerada: " + url;
+
+      // Evento customizado para medir o clique
+      gtag('event', 'click_whatsapp', {
+        'event_category': 'engagement',
+        'event_label': 'Botão WhatsApp'
+      });
+
+      // Abre o WhatsApp em nova aba
+      window.open(url, "_blank");
+    }
+     // Formulário -> redireciona para página de agradecimento
+    function enviarFormulario(event) {
+      event.preventDefault();
+
+      // Evento customizado para medir envio de formulário
+      gtag('event', 'form_submit', {
+        'event_category': 'lead',
+        'event_label': 'Formulário de Contato'
+      });
+
+      // Redireciona para página de agradecimento
+      window.location.href = "thankyou.html";
+    }
+  </script>
+</body>
+</html>
